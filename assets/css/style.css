@@ -182,6 +182,13 @@ body.is-scrolled .orb { opacity: 0.32; }
   background: var(--navy); color: var(--butter); transition: transform 0.35s var(--ease);
 }
 .btn:hover .btn__arrow { transform: rotate(-45deg); }
+.btn--soon, .btn--soon:hover {
+  --bg: rgba(251, 239, 230, 0.08); --fg: var(--text-dim);
+  cursor: default; transform: none; box-shadow: none;
+  border: 1px dashed rgba(251, 239, 230, 0.35);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.tix__buy .btn--soon { --bg: rgba(26, 31, 43, 0.08); --fg: var(--navy); border-color: rgba(26, 31, 43, 0.45); }
 .btn--ghost {
   --bg: rgba(251, 239, 230, 0.08); --fg: var(--cream);
   border: 1px solid rgba(251, 239, 230, 0.28); box-shadow: none;

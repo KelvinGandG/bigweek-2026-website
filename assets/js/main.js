@@ -35,10 +35,24 @@
     el.hidden = el.dataset.show.split(" ").indexOf(state) === -1;
   });
 
-  /* ---------- Links from config ---------- */
+  /* ---------- Links from config ----------
+     Before sales open, every Howler button becomes a non-clickable "Coming soon". */
+  var live = cfg.links.ticketsLive;
+  var salesOpen = live === true ? true : live === false ? false : (state === "loyalty" || state === "onsale");
+  body.classList.toggle("sales-open", salesOpen);
   var ticketHref = cfg.links.tickets || "tickets.html";
   document.querySelectorAll("[data-link]").forEach(function (el) {
     var key = el.dataset.link;
+    if (!salesOpen) {
+      var soon = document.createElement("span");
+      soon.className = el.className + (el.classList.contains("btn") ? " btn--soon" : " link--soon");
+      soon.textContent = el.dataset.soon || "Coming soon";
+      if (el.hasAttribute("data-show")) soon.setAttribute("data-show", el.getAttribute("data-show"));
+      soon.hidden = el.hidden;
+      soon.setAttribute("aria-disabled", "true");
+      el.replaceWith(soon);
+      return;
+    }
     var href = key.split(".").reduce(function (o, k) { return o ? o[k] : undefined; }, cfg.links);
     if (!href && key !== "preRegister") href = cfg.links.tickets; // fall back to the main Howler page
     if (!href) return;

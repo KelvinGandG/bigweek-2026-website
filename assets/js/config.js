@@ -6,6 +6,11 @@
 window.BW_CONFIG = {
   links: {
     preRegister: "https://bigweek.howler.co.za/reg2026",
+    /* Howler buttons. Until sales open (loyaltyOnSale below), every Howler button
+       shows "Coming soon" with no link. They switch on by themselves at that time.
+       Override: ticketsLive: true = force live now, false = keep "Coming soon". */
+    ticketsLive: "auto",
+
     // Main Howler event page — every "Buy now" / "Get tickets" button uses this
     // unless a more specific link below is filled in.
     tickets: "https://bigweek.howler.co.za",
@@ -20,7 +25,7 @@ window.BW_CONFIG = {
   },
 
   dates: {
-    preRegCloses: "2026-10-04T23:59:59+02:00",
+    preRegCloses: "2026-10-02T00:00:00+02:00",   // pre-registration closed early
     loyaltyOnSale: "2026-10-05T12:00:00+02:00",
     publicOnSale: "2026-10-06T12:00:00+02:00",
     festivalStart: "2026-12-27T15:00:00+02:00"
