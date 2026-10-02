@@ -691,6 +691,7 @@ body.is-scrolled .orb { opacity: 0.32; }
   .subnav__link span { overflow: hidden; text-overflow: ellipsis; }
   .night { scroll-margin-top: 140px; }
   .night__num { font-size: 64px; }
+  .night__word { font-size: clamp(56px, 19vw, 80px); }
   .night__meta, .night__pulse { grid-template-columns: 1fr; }
   .night__slots { grid-template-columns: 1fr; }
   .night__next { margin-left: 0; }
