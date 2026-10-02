@@ -93,3 +93,8 @@ Any static host works. For example:
 - **Existing hosting (cPanel etc.):** upload the contents of `website` into the site's public folder (`public_html`).
 
 Point `bigweek.co.za` at it and you're live.
+
+## After editing CSS or JS
+The pages load `style.css`, `config.js` and `main.js` with a version tag (`?v=20261002b`).
+When you change any of those files, bump the tag in all six `.html` files (search and replace the old tag)
+so visitors' browsers fetch the new version straight away instead of a saved copy.
