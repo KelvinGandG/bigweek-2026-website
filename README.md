@@ -51,16 +51,19 @@ The site changes itself on these dates:
 ### Lineup — add artists whenever you announce
 ```js
 nights: {
-  "yanoz-club": ["Artist One", "Artist Two"],
-  "shimza": ["Shimza"],
-  "aklalwa-ekhaya": [],
-  "maziwe-ke": []
+  "yanoz-club": [
+    { name: "Headline Artist", photo: "headline-artist.jpg", headliner: true },
+    { name: "Artist Two", photo: "artist-two.jpg" },
+    "Artist Three"
+  ],
+  ...
 }
 ```
-- Add as many or as few names as you like, at any time. They show in the order written.
-- Nights with fewer than 3 names are topped up with "Coming soon".
-- When the full lineup is out, set `complete: true`.
-- The Lineup page, the Home lineup and the Chapters page all update together.
+- **Photos:** save them in `assets/img/artists/`. Use portrait 4:5 (about 1000 x 1250 px) JPGs, named simply, e.g. `artist-two.jpg`.
+- **Name only:** an artist without a photo shows a placeholder card with their initial until a photo is added.
+- **Headliner:** `headliner: true` shows the card at double size on the Lineup page.
+- **Placeholders:** empty spots show "Coming soon" cards, and a "More to come" card stays at the end until you set `complete: true`.
+- **Where names show:** the Lineup page shows photo cards. The Home lineup and the Chapters page show the names only.
 
 ### Partner gallery (Partners page)
 Shown as brand tabs (Flying Fish first), each opening a swipeable row of photos.

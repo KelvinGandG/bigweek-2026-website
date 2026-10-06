@@ -31,11 +31,13 @@ window.BW_CONFIG = {
     festivalStart: "2026-12-27T15:00:00+02:00"
   },
 
-  /* Lineup — add artist names to each night whenever you announce them
-     (one at a time or all at once). Names show in the order listed.
-     Nights with fewer than 3 names are topped up with "Coming soon" slots.
-     Set `complete: true` once the full lineup is out to remove the
-     "More to be announced" slot. */
+  /* Lineup — add artists to each night whenever you announce them (one or many at a time).
+     Each artist can be just a name:        "Artist Name"
+     or a name with a photo:                { name: "Artist Name", photo: "artist-name.jpg" }
+     Make an artist a headliner (double-size card on the Lineup page):
+                                            { name: "Artist Name", photo: "artist-name.jpg", headliner: true }
+     Photos go in assets/img/artists/ — portrait 4:5, about 1000 x 1250 px, JPG.
+     Names show in the order listed. Set complete: true once the full lineup is out. */
   lineup: {
     complete: false,
     nights: {
