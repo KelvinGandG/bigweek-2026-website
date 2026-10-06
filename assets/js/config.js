@@ -26,8 +26,8 @@ window.BW_CONFIG = {
 
   dates: {
     preRegCloses: "2026-10-02T00:00:00+02:00",   // pre-registration closed early
-    loyaltyOnSale: "2026-10-05T12:00:00+02:00",
-    publicOnSale: "2026-10-06T12:00:00+02:00",
+    loyaltyOnSale: "2026-10-08T12:00:00+02:00",
+    publicOnSale: "2026-10-09T12:00:00+02:00",
     festivalStart: "2026-12-27T15:00:00+02:00"
   },
 

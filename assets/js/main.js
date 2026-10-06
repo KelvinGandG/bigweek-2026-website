@@ -7,8 +7,8 @@
 
   /* ---------- Sales state ----------
      prereg  : pre-registration open (until 4 Oct 23:59)
-     closed  : pre-reg closed, waiting for loyalty on-sale (5 Oct 10:00)
-     loyalty : on sale to pre-registered customers (5 Oct 10:00 → 6 Oct 10:00)
+     closed  : pre-reg closed, waiting for loyalty on-sale (8 Oct 10:00)
+     loyalty : on sale to pre-registered customers (8 Oct 10:00 → 9 Oct 10:00)
      onsale  : on sale to the public
      Preview any state with ?state=closed etc. */
   function t(key) { return new Date(cfg.dates[key]).getTime(); }
@@ -87,12 +87,24 @@
       parts.s.textContent = pad(sec % 60);
       if (diff === 0) {
         clearInterval(timer);
-        if (!forcedState) setTimeout(function () { location.reload(); }, 1500);
       }
     };
     timer = setInterval(tick, 1000);
     tick();
   });
+
+  /* Switch-over: if a sale date passes while someone has a page open, refresh that page
+     once so every button updates. Only dates still in the future on load are scheduled,
+     so a page can never reload itself in a loop. */
+  if (!forcedState) {
+    var now0 = Date.now();
+    var upcoming = ["preRegCloses", "loyaltyOnSale", "publicOnSale"]
+      .map(t).filter(function (ts) { return ts > now0; });
+    if (upcoming.length) {
+      var wait = Math.min.apply(null, upcoming) - now0 + 1000;
+      if (wait < 2147483647) setTimeout(function () { location.reload(); }, wait);
+    }
+  }
 
   /* Inline countdowns, e.g. "04d 19h 28m 12s" inside a button */
   var inline = document.querySelectorAll("[data-countdown-inline]");

@@ -31,9 +31,9 @@ Optional: the `days`, `bigPass` and `bigTable` entries can hold more specific Ho
 
 ### Sale dates (drive every countdown and button switch)
 ```js
-preRegCloses:  "2026-10-04T23:59:59+02:00",
-loyaltyOnSale: "2026-10-05T12:00:00+02:00",
-publicOnSale:  "2026-10-06T12:00:00+02:00",
+preRegCloses:  "2026-10-02T00:00:00+02:00",
+loyaltyOnSale: "2026-10-08T12:00:00+02:00",
+publicOnSale:  "2026-10-09T12:00:00+02:00",
 festivalStart: "2026-12-27T15:00:00+02:00"
 ```
 The site changes itself on these dates:
@@ -41,8 +41,8 @@ The site changes itself on these dates:
 | Until | What visitors see |
 |---|---|
 | 4 Oct 23:59 | Pre-Register buttons, countdown to pre-reg closing |
-| 5 Oct 12:00 | "Pre-registration closed", countdown to on-sale |
-| 6 Oct 12:00 | Buy buttons live (loyalty sale), countdown to public sale |
+| 8 Oct 12:00 | "Pre-registration closed", countdown to on-sale |
+| 9 Oct 12:00 | Buy buttons live (loyalty sale), countdown to public sale |
 | After | Buy buttons live, countdown to the festival |
 
 **Preview any stage** by adding `?state=` to a page address, e.g. `tickets.html?state=onsale`
