@@ -98,6 +98,14 @@ Any static host works. For example:
 Point `bigweek.co.za` at it and you're live.
 
 ## After editing CSS or JS
-The pages load `style.css`, `config.js` and `main.js` with a version tag (`?v=20261002b`).
+The pages load `style.css`, `config.js`, `early.js` and `main.js` with a version tag (e.g. `?v=20261008b`).
 When you change any of those files, bump the tag in all six `.html` files (search and replace the old tag)
 so visitors' browsers fetch the new version straight away instead of a saved copy.
+
+## Security, SEO and AI files
+- **Content-Security-Policy** (in every page's `<head>`): the site may only load files from itself. If you ever embed something external (a YouTube video, analytics, a Howler widget), that host must be added to the policy or it will be blocked.
+- **Fonts** are self-hosted in `assets/fonts/` (Amatic SC, Poppins; SIL Open Font License). No calls to Google.
+- **robots.txt / sitemap.xml / llms.txt** sit at the site root and use `https://bigweek.co.za/` URLs. They only take effect once the domain points here.
+- **Structured data:** the Home page describes the festival and its four nights (schema.org `Festival` + `MusicEvent`); Info carries the FAQs (`FAQPage`). Update the dates, prices or venue there when they change.
+- **Unannounced artists:** anything in `config.js` is public the moment it's pushed, even if it isn't shown on a page. Only add artists when they're announced.
+- **404.html** is the branded "page not found" page.

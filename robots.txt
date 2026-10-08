@@ -1,0 +1,20 @@
+# BIG WEEK 2026 — bigweek.co.za
+User-agent: *
+Allow: /
+Disallow: /README.md
+
+# AI search and assistant crawlers are welcome to read the public festival info
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://bigweek.co.za/sitemap.xml

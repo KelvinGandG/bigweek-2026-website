@@ -238,7 +238,7 @@
       var num = String(idx + 1).padStart(2, "0");
       if (!nm) {
         return '<figure class="acard acard--soon"><div class="acard__photo">' +
-          '<img class="acard__gold" src="assets/img/elements/' + GOLD[idx % GOLD.length] + '.webp" alt="" loading="lazy">' +
+          '<img class="acard__gold" src="assets/img/elements/' + GOLD[idx % GOLD.length] + '-sm.webp" alt="" loading="lazy" width="220" height="220">' +
           '<span class="acard__soon">Coming soon</span><span class="acard__num">' + num + "</span></div>" +
           '<figcaption class="acard__name">To be announced</figcaption></figure>';
       }
@@ -465,7 +465,8 @@
     var el = document.createElement("span");
     el.className = "floater floater--" + (f[2].z === "f" ? "front" : "back");
     el.setAttribute("aria-hidden", "true");
-    el.innerHTML = '<img src="assets/img/elements/' + f[1] + '.webp" alt="" loading="lazy" decoding="async">';
+    var small = mqMobile.matches || (f[2].w || 0) <= 110;
+    el.innerHTML = '<img src="assets/img/elements/' + f[1] + (small ? "-sm" : "") + '.webp" alt="" loading="lazy" decoding="async">';
     el.style.setProperty("--fr", (f[2].r0 || 0) + "deg");
     el.style.setProperty("--fdur", (7 + (i % 5) * 1.3).toFixed(1) + "s");
     el.style.setProperty("--fdel", (-(i % 4) * 1.7).toFixed(1) + "s");
