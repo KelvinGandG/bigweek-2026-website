@@ -8,5 +8,9 @@
   var state = forced || (now <= t("preRegCloses") ? "prereg"
     : now < t("loyaltyOnSale") ? "closed"
     : now < t("publicOnSale") ? "loyalty" : "onsale");
+  if (!forced && !cfg.dates.loyaltyOnSale) {
+    state = "closed";                                   // on-sale date not set yet
+    document.documentElement.classList.add("sale-tbc"); // hides countdowns and dates
+  }
   document.documentElement.setAttribute("data-state", state);
 })();

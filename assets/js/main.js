@@ -29,7 +29,7 @@
     onsale: { key: "festivalStart", label: "The Homecoming starts in" }
   };
 
-  var state = currentState(Date.now());
+  var state = document.documentElement.getAttribute("data-state") || currentState(Date.now());
   body.dataset.state = state;
   document.querySelectorAll("[data-show]").forEach(function (el) {
     el.hidden = el.dataset.show.split(" ").indexOf(state) === -1;
@@ -99,7 +99,7 @@
   if (!forcedState) {
     var now0 = Date.now();
     var upcoming = ["preRegCloses", "loyaltyOnSale", "publicOnSale"]
-      .map(t).filter(function (ts) { return ts > now0; });
+      .map(t).filter(function (ts) { return ts > now0; }); // empty dates are skipped (NaN)
     if (upcoming.length) {
       var wait = Math.min.apply(null, upcoming) - now0 + 1000;
       if (wait < 2147483647) setTimeout(function () { location.reload(); }, wait);

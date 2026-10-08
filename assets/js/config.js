@@ -9,7 +9,7 @@ window.BW_CONFIG = {
     /* Howler buttons. Until sales open (loyaltyOnSale below), every Howler button
        shows "Coming soon" with no link. They switch on by themselves at that time.
        Override: ticketsLive: true = force live now, false = keep "Coming soon". */
-    ticketsLive: "auto",
+    ticketsLive: false,   // false = every ticket button shows "Coming soon" (no link). Set to "auto" once an on-sale date is set below.
 
     // Main Howler event page — every "Buy now" / "Get tickets" button uses this
     // unless a more specific link below is filled in.
@@ -26,8 +26,8 @@ window.BW_CONFIG = {
 
   dates: {
     preRegCloses: "2026-10-02T00:00:00+02:00",   // pre-registration closed early
-    loyaltyOnSale: "2026-10-08T12:00:00+02:00",
-    publicOnSale: "2026-10-09T12:00:00+02:00",
+    loyaltyOnSale: "",   // on-sale to pre-registered fam — leave "" until confirmed (e.g. "2026-10-20T12:00:00+02:00")
+    publicOnSale: "",    // on-sale to the public — leave "" until confirmed
     festivalStart: "2026-12-27T15:00:00+02:00"
   },
 

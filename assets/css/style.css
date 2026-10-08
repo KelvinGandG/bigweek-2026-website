@@ -545,6 +545,8 @@ html[data-state="prereg"] [data-show]:not([data-show~="prereg"]),
 html[data-state="closed"] [data-show]:not([data-show~="closed"]),
 html[data-state="loyalty"] [data-show]:not([data-show~="loyalty"]),
 html[data-state="onsale"] [data-show]:not([data-show~="onsale"]) { display: none !important; }
+html.sale-tbc [data-countdown], html.sale-tbc [data-countdown-label], html.sale-tbc [data-date] { display: none !important; }
+html:not(.sale-tbc) [data-tbc] { display: none !important; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
